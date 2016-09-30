@@ -1,0 +1,34 @@
+<h1>Cours complet sur la création d'une application web avec ruby on rails</h1>
+
+<H2>Création de pages</H2>
+
+<p>Il va falloir intrvenir sur les fichiers suivants : </p>
+<ul>
+	<li>Page_controllers.rb (app->controller->pages_controller.rb</li>
+	<li>Pages (app->views->pages)</li>
+	<li>routes.rb (config->routes.rb)</li>
+
+</ul>
+
+
+<h3>Page_controller.rb</h3>
+<p>Ici on va indiquer la création de nouvelles pages au controller, étant donné que nous sommes dans une architecture Modèle Views Controller (MVC)<br>
+Nous agissons donc ici sur la partie MV<strong>C</strong> de l'architecture.<br>
+Je vais donc créer les pages <i>about</i> et <i>cours</i> en respectant la taxonomie existante pour la page <i>home</i>.
+<img src="app/assets/images/PaCo.jpg">
+</p>
+
+
+<h3>Page</h3>
+
+<p>En toute simplicité, on va se rendre sur le dossier pages, et créer les pages (app->views->pages). <br>
+Pour les gros noobs : clics droit sur pages et new file (easy). <br>
+Il faut bien respecter la taxonomie en .html.erb lors de l'enregistrement
+</p>
+
+<h3>routes.rb</h3>
+
+<p>La home a déja été crée précedement dans ce fichier avec l'attribut root qui signifie que cette page est l'index.<br>
+La nouvelle taxonomie diffère un peu avec l'attribu "get" ce qui nous donne get "about" => "pages#about
+<img src="assets/images/routes2.jpg">
+</p>

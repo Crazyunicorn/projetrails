@@ -39,7 +39,7 @@ La nouvelle taxonomie diffère un peu avec l'attribu "get" ce qui nous donne get
 <img src="assets/images/layout.jpg"><br>
 C'est ici que nous allons créer les liens pour unifier nos pages. La fonction pour créer les liens est : <br><br>
 
-< %= link_to "home" , root_path %> (in n'y a pas d'espace entre le premier < et %, c'est pour éviter que le code s'exécute)<br> <br>
+< %= link_to "home" , root_path %> (il n'y a pas d'espace entre le premier < et %, c'est pour éviter que le code s'exécute)<br> <br>
 Pour la <i>home</i>, il faut utiliser root, car il s'agit de l'index. après, c'est le nom de la page définit dans le page_controller.rb
 On place ceci entre le <i> body</i> et le champs <i>yield </i>pour le moment.
 
@@ -48,11 +48,20 @@ On place ceci entre le <i> body</i> et le champs <i>yield </i>pour le moment.
 
 <h3>Ajouter bootstrap à son projet rails</h3>
 
-<p>Dans un premier temps, il faut ouvrir le fichier gemfile, où se trouve les <i>gems rails</i>. Après, il faut taper la requête "bootstrap-sass" dans github. A partir de cette étape, rentrez dans un dossier, vous verrez l'ensemble des fichiers en open source et en bas vous trouverez la <i>gem</i> bootstrap à installer. Cela devrait se présenter de la sorte :  <i>gem 'bootstrap-sass', '~> 3.3.6' </i><br>
-<img src="assets/images/bootstrap.jpg"><br>
-Après avoir copier cette <i>gem</i> dans le projet, il faut l'installer via le terminal avec la commande <i>bundle install</i></p>
+<p>Dans un premier temps, il faut ouvrir le fichier gemfile, où se trouve les <i>gems rails</i>. En haut du fichier vous remarquerez l'adresse suivante : www.rubygems.org, il s'agit du site qui référence l'ensemble des <i>gem</i> disponible. Copier/coller la dernière version de la <i>gem</i> bootstrap à la suite des autres dans votre fichier Gemfile et sauvegardez.<br> A partir de cette étape, rentrez dans un dossier, vous verrez l'ensemble des fichiers en open source et en bas vous trouverez la <i>gem</i> bootstrap à installer. Cela devrait se présenter de la sorte :  <i>gem 'bootstrap-sass', '~> 3.3.6' </i>(choisissez toujours la dernière version)<br>
+<img src="assets/images/Gmfile.jpg"><br>
+Après avoir copier cette <i>gem</i> dans le projet, il faut l'installer via le terminal avec la commande <i>bundle install</i><br>
+Dernière étape : suivez le chemin suivant : app->assets->stylesheets. Et créez un nouvelle feuille bootstrap_perso.css.scss (ne jamais l'appeler uniquement bootstrap). Une fois que vous l'avez enregistrez, entrez la ligne suivante :  <i>@import 'bootstrap';</i> et sauvegardez à nouveau.
+<br><br>
+Lors de l'installation de nouvelles <i>gems</i>, il faut toujours redémarrez le serveur local (ctrl + c pour éteindre et rails server dans le dossier de votre projet pour le relancer). Et maintenant, vous pouvez constater que bootstrap c'est bien installer et que votre site vas s'embellir beaucouo plus facilement :).</p>
 
 
+<h3>Utiliser Bootstrap dans son application ruby</h3>
+
+<h5>Il est nécéssaire de maîtriser à minima ce framework pour l'utilise </h5>
+
+<p>Dans un premier temps, nous allons faire un peu de mise en page. Dans le fichier application.html.erb (app->views->layout), nous allons encadrer l'instruction yield avec une <i>div class ="container"</i>. Cela harmonisera vos pages web. </p>
+<img src="assets/images/bootstrap.jpg">
 
 
 

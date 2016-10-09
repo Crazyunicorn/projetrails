@@ -1,5 +1,6 @@
-<h1>Cours complet sur la création d'une application web avec ruby on rails</h1>
-
+<div class="jumbotron">
+<h2 >Cours complet sur la création d'une application web avec ruby on rails</h2>
+</div>
 <H2>Création de pages</H2>
 
 <p>Il va falloir intrvenir sur les fichiers suivants : </p>
@@ -15,9 +16,9 @@
 <p>Ici on va indiquer la création de nouvelles pages au controller, étant donné que nous sommes dans une architecture Modèle Views Controller (MVC)<br>
 Nous agissons donc ici sur la partie MV<strong>C</strong> de l'architecture.<br>
 Je vais donc créer les pages <i>about</i> et <i>cours</i> en respectant la taxonomie existante pour la page <i>home</i>.
-<img src="app/assets/images/PaCo.jpg">
-</p>
 
+</p><br>
+<img src="app/assets/images/PaCo.jpg">
 
 <h3>Page</h3>
 
@@ -30,46 +31,65 @@ Il faut bien respecter la taxonomie en .html.erb lors de l'enregistrement
 
 <p>La home a déja été crée précedement dans ce fichier avec l'attribut root qui signifie que cette page est l'index.<br>
 La nouvelle taxonomie diffère un peu avec l'attribu "get" ce qui nous donne get "about" => "pages#about
+</p><br>
 <img src="assets/images/routes2.jpg">
-</p>
-
 <H2>Création de liens</H2>
 
-<p>Pour se situer, la création de liens appartient à la Vue (M<strong>V</strong>c). Donc on suit le chemin app -> views -> layouts. Dans ce dossier, on trouve le fichier <i>application.html.erb</i> qui se présente de cette manière <br>
+<p>Pour se situer, la création de liens appartient à la Vue (M<strong>V</strong>C). Donc on suit le chemin app -> views -> layouts. Dans ce dossier, on trouve le fichier <i>application.html.erb</i> qui se présente de cette manière <br>
 <img src="assets/images/layout.jpg"><br>
 C'est ici que nous allons créer les liens pour unifier nos pages. La fonction pour créer les liens est : <br><br>
 
 < %= link_to "home" , root_path %> (il n'y a pas d'espace entre le premier < et %, c'est pour éviter que le code s'exécute)<br> <br>
 Pour la <i>home</i>, il faut utiliser root, car il s'agit de l'index. après, c'est le nom de la page définit dans le page_controller.rb
-On place ceci entre le <i> body</i> et le champs <i>yield </i>pour le moment.
+On place ceci entre le <i> body</i> et l'instruction' <i>yield </i>pour le moment.
 
 </p>
 <br><br>
 
-<h3>Ajouter bootstrap à son projet rails</h3>
+<h2>Ajouter bootstrap à son projet rails</h2>
 
 <p>Dans un premier temps, il faut ouvrir le fichier gemfile, où se trouve les <i>gems rails</i>. En haut du fichier vous remarquerez l'adresse suivante : www.rubygems.org, il s'agit du site qui référence l'ensemble des <i>gem</i> disponible. Copier/coller la dernière version de la <i>gem</i> bootstrap à la suite des autres dans votre fichier Gemfile et sauvegardez.<br> A partir de cette étape, rentrez dans un dossier, vous verrez l'ensemble des fichiers en open source et en bas vous trouverez la <i>gem</i> bootstrap à installer. Cela devrait se présenter de la sorte :  <i>gem 'bootstrap-sass', '~> 3.3.6' </i>(choisissez toujours la dernière version)<br>
 <img src="assets/images/Gmfile.jpg"><br>
-Après avoir copier cette <i>gem</i> dans le projet, il faut l'installer via le terminal avec la commande <i>bundle install</i><br>
+Après avoir copier cette <i>gem</i> dans le projet, il faut l'installer via le terminal avec la commande <i>bundle instal</i><br>
 Dernière étape : suivez le chemin suivant : app->assets->stylesheets. Et créez un nouvelle feuille bootstrap_perso.css.scss (ne jamais l'appeler uniquement bootstrap). Une fois que vous l'avez enregistrez, entrez la ligne suivante :  <i>@import 'bootstrap';</i> et sauvegardez à nouveau.
 <br><br>
 Lors de l'installation de nouvelles <i>gems</i>, il faut toujours redémarrez le serveur local (ctrl + c pour éteindre et rails server dans le dossier de votre projet pour le relancer). Et maintenant, vous pouvez constater que bootstrap c'est bien installer et que votre site vas s'embellir beaucouo plus facilement :).</p>
 
 
-<h3>Utiliser Bootstrap dans son application ruby</h3>
+<h2>Utiliser Bootstrap dans son application ruby</h2>
 
-<h5>Il est nécéssaire de maîtriser à minima ce framework pour l'utilise </h5>
+<h5>Il est nécéssaire de maîtriser à minima ce framework pour l'utiliser. </h5>
 
-<p>Dans un premier temps, nous allons faire un peu de mise en page. Dans le fichier application.html.erb (app->views->layout), nous allons encadrer l'instruction yield avec une <i>div class ="container"</i>. Cela harmonisera vos pages web. </p>
+<p>Dans un premier temps, nous allons faire un peu de mise en page. Dans le fichier <i>application.html.erb</i> (app->views->layout), nous allons encadrer l'instruction yield avec une <i>div class ="container"</i>. Cela harmonisera vos pages web. </p>
 <img src="assets/images/bootstrap.jpg">
 
+<p>Nous allons ajouter une barre de navigation à notre site avec bootstrap. Avant de commencer, il est nécéssaire de se rendre dans le dossier <i>layouts</i> et de créer le fichier suivant : _header.html.erb <br> C'est dans ce fichier que nous allons créer la navbar. L'intêret d'avoir un fichier distinct, est de pouvoir modifier sa barre de navigation sur toutes les pages du site au même endroit (il en sera de même pour le footer par exemple). </p>
+
+<img src="assets/images/header.jpg">
 
 
+<p>Sur le  <a href="http://getbootstrap.com/components">site</a> de bootstrap, nous allons chercher la navbar par défault (il faut scroller un peu)et il suffit de copier/coller le code dans le fichier <i>_header.html.erb</i></p>
+
+<p>Une fois cela effectuer, nous allons nettoyer le code surperflue, est vous allez garder uniquement les éléments indiquer sur la photo ci-dessous :</p>
+
+<img src="assets/images/nav1.jpg">
+
+<p>Ensuite entre des balises <i>li</i>, nous allons ajouter les liens que nous avions créer pour le fichier <i>application.html.erb</i> de la manière suivante : </p>
+
+<img src="assets/images/nav2.jpg">
+
+<p>Et pour finir, nous remplacerons les liens du fichier application.html.erb par la fonction suivante qui va indiquer à rails ou se trouve notre navbar : < %= render 'layouts/header' %> </p>
 
 
+<img src="assets/images/nav3.jpg">
 
 
+<p>Bootstrap est un framework responsive, est il faut ajouter la prise en charge du javascrip qui n'est pas automatique (le js à en revanche bien été importé au préalable). Pour cela, dans le dossier asset, ouvrez le fichier <i>application.js</i> et ajouter à la fin la ligne suivante en commentaire : <i>// require bootstrap</i> et sauvegardez.</p>
 
+
+<img src="../app/assets/images/js.jpg">
+
+<p>Vous pouvez tester le js en réduisant votre fenêtre internet, vous verrez alors apparaître le toogle destiné au appareils mobile, si vous cliquez dessus, le menu se deroulera en dessous. </p>
 
 
 

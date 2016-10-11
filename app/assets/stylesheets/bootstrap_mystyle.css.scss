@@ -4,13 +4,34 @@ $navbar-default-bg: #2c3e50;
 $navbar-default-link-hover-color: #1abc9c;
 $text-color:#34495e;
 $jumbotron-bg: #1abc9c;
-.homejumbo {
-text-color: #ecf0f1;
-
-
-}
-
+$navbar-default-brand-hover-color:#1abc9c;
+$navbar-default-toggle-hover-bg:#1abc9c;
+$navbar-default-toggle-icon-bar-bg:#ecf0f1;
+$navbar-default-toggle-border-color:#ecf0f1;
+/*$btn-warning-bg: */
 
 
 @import 'bootstrap'; 
 
+.navbar-brand {
+font-weight : bold;
+
+}
+
+/*.perso {
+	text-color: #ecf0f1 ! important; 
+}*/
+
+h1 {
+
+	text-color: #ecf0f1 ! important;
+}
+
+.perso {
+	color: #e74c3c;
+}
+
+#perso1 {
+color: #f39c12;
+
+}

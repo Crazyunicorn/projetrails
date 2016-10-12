@@ -21,9 +21,13 @@
        <li><%= link_to "Home" , root_path %></li>
        <li> <%= link_to "About Us" , about_path %></li>
        <li> <%= link_to "Cours" , cours_path %></li>
-       <li><%= link_to "Connexion" , cours_path , id:"perso1" %> </li>
+       
+       <% if user_signed_in? %>
 
-         
+       <li><%= link_to "Déconnexion" , destroy_user_session_path , id:"perso1" , method: :delete %> </li>
+      <% else %>
+        <li><%= link_to "Connexion" , new_user_session_path , id:"perso1" %> </li>
+      <% end %>
         
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -1,7 +1,17 @@
 
 <div class="jumbotron text-center">
-<h1>Mon projet rails </h1>
-<h4 >Hello, si vous désirez suivre le tuto, <%= link_to "Créez un compte" , new_user_registration_path , class: "btn btn-primary btn-lg" %></h4>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae necessitatibus nesciunt dicta nam voluptas qui esse dolorem! Fugiat omnis nostrum porro debitis cupiditate quas possimus quos, enim reprehenderit placeat culpa.</p>
+	<h1>Mon projet rails </h1>
 
+	<% if user_signed_in? %>
+	#Affichage verif
+	
+	<% else %>
+
+	<h4 >Hello, si vous désirez suivre le tuto, 
+		<%= link_to "Créez un compte" , new_user_registration_path , class: "btn btn-primary btn-lg" %>		
+	</h4>
+	
+	<% end %>
+
+	</div>
+		

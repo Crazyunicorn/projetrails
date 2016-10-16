@@ -1,27 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Pins</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @pins.each do |pin| %>
-      <tr>
-        <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class= "panel panel-default">
+  
+  
+  <div class="panel-heading">
+    <h1>Créer une épingle</h1>
+  </div>
+  <div class="panel-body">  
+    <div class="table-responsive">
+      <table class="table table-hover table-condensed table-responsive" >
+        <thead >
+          <th class="text-center">Photos</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Utilisateurs</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+            <% @pins.each do |pin| %>
+                  <tr class="text-center">
+                    <td><%= image_tag pin.image.url(:thumb) %></td>
+                    <td><%= pin.description %></td>
+                    <td ><%= pin.user.email if pin.user %></td>
+                    <td><%= link_to 'Agrandir', pin, class: "pin"  %></td>
+                    <% if pin.user == current_user %>
+                    <td><%= link_to 'Editer ', edit_pin_path(pin), class: "pin"  %></td>
+                    <td><%= link_to 'Supprimer', pin, method: :delete, data: { confirm: 'Supprimer définitivement' }, class: "pin"%></td>
+                    <% end %>
+                  </tr>
+              <% end %>
+        </tbody>
+      </table> 
+    </div><!--table responsive-->   
+  </div><!--panel-body-->   
+
+  
+  <div class="panel-footer">
+    <% if user_signed_in?%>
+    <%= link_to 'Nouvelle épingle', new_pin_path, class: "btn btn-primary " %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pin', new_pin_path %>
+  </div>
+</div>

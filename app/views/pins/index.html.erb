@@ -1,13 +1,8 @@
+<% if user_signed_in?%>
+    
+    <% end %>
 
-
-
-<div class= "panel panel-default">
   
-  
-  <div class="panel-heading">
-    <h1>Créer une épingle</h1>
-  </div>
-  <div class="panel-body">  
     <div class="table-responsive">
       <table class="table table-hover table-condensed table-responsive" >
         <thead >
@@ -33,12 +28,11 @@
         </tbody>
       </table> 
     </div><!--table responsive-->   
-  </div><!--panel-body-->   
+ 
 
   
-  <div class="panel-footer">
+ 
     <% if user_signed_in?%>
     <%= link_to 'Nouvelle épingle', new_pin_path, class: "btn btn-primary " %>
     <% end %>
-  </div>
-</div>
+
